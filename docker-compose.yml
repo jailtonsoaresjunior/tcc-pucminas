@@ -1,0 +1,88 @@
+version: '3.4'
+
+services:
+  scaautenticacao:
+    image: ${DOCKER_REGISTRY-}scaautenticacao
+    restart: always
+    build:
+      context: .
+      dockerfile: SGAAutenticacao/Dockerfile
+
+
+  scagateway:
+    image: ${DOCKER_REGISTRY-}scagateway
+    restart: always
+    build:
+      context: .
+      dockerfile: SGAGateway/Dockerfile
+    depends_on: 
+      - scaautenticacao
+
+
+  scacompliance:
+    image: ${DOCKER_REGISTRY-}scacompliance
+    restart: always
+    build:
+      context: .
+      dockerfile: SGACompliance/Dockerfile
+    depends_on: 
+      - scaautenticacao
+
+
+  scaapresentacao:
+    image: ${DOCKER_REGISTRY-}scaapresentacao
+    restart: always
+    build:
+      context: .
+      dockerfile: SGAApresentacao/Dockerfile      
+    depends_on: 
+      - scaautenticacao
+
+
+  scaativos:
+    image: ${DOCKER_REGISTRY-}scaativos
+    restart: always
+    build:
+      context: .
+      dockerfile: SGA.Ativos/Dockerfile
+    depends_on: 
+      - scaautenticacao
+
+  scainteligencianegocio:
+    image: ${DOCKER_REGISTRY-}scainteligencianegocio
+    restart: always
+    build:
+      context: .
+      dockerfile: SCA.InteligenciaNegocio/Dockerfile
+    depends_on: 
+      - scaautenticacao
+
+
+  scamonitoramento:
+    image: ${DOCKER_REGISTRY-}scamonitoramento
+    restart: always
+    build:
+      context: .
+      dockerfile: SCA.Monitoramento/Dockerfile
+    depends_on: 
+      - scaautenticacao
+
+
+  scaprocessominerario:
+    image: ${DOCKER_REGISTRY-}scaprocessominerario
+    restart: always
+    build:
+      context: .
+      dockerfile: SCA.ProcessoMinerario/Dockerfile
+    depends_on: 
+      - scaautenticacao
+
+
+  scaseguranca:
+    image: ${DOCKER_REGISTRY-}scaseguranca
+    restart: always
+    build:
+      context: .
+      dockerfile: SCA.Seguranca/Dockerfile
+    depends_on: 
+      - scaautenticacao
