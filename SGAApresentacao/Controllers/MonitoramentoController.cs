@@ -20,7 +20,7 @@ namespace SCA.Apresentacao.Controllers
 
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            var content = await client.GetStringAsync("http://192.168.1.102:10000/Monitoramento/");
+            var content = await client.GetStringAsync("http://192.168.1.127:10000/Monitoramento/");
 
             ViewBag.listaMonitoramentoJson = JArray.Parse(content).ToString();
 

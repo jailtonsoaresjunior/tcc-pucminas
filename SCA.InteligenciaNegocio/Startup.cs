@@ -28,7 +28,7 @@ namespace SCA.InteligenciaNegocio
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
                 {
-                    options.Authority = "http://192.168.1.102:9000/";
+                    options.Authority = "http://192.168.1.127:9000/";
                     options.RequireHttpsMetadata = false;
                     options.Audience = "apiInteligenciaNegocio";
                 });

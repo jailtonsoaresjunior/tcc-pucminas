@@ -73,6 +73,22 @@
       }
     },
     {
+      "DownstreamPathTemplate": "/api/Ativos",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "scaativos",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Ativos/",
+      "UpstreamHttpMethod": [ "Post" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "SCAAutenticacao",
+        "AllowedScopes": []
+      }
+    },
+    {
       "DownstreamPathTemplate": "/api/Ativos/{id}",
       "DownstreamScheme": "http",
       "DownstreamHostAndPorts": [

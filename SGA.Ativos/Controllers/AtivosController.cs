@@ -1,6 +1,10 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
+using SCA.Ativos.Modelo;
+using SCA.Ativos.Modelo.Interface;
+using SCA.Ativos.Negocio;
 using System.Collections.Generic;
+using System.Linq;
 
 namespace SCA.Ativos.Controllers
 {
@@ -9,11 +13,13 @@ namespace SCA.Ativos.Controllers
     [ApiController]
     public class AtivosController : ControllerBase
     {
+        private IAtivoInterface _ativoRegraNegocio = new AtivoRegraNegocio();
         // GET: api/Ativos
         [HttpGet]
-        public ActionResult<IEnumerable<string>> Get()
+        public ActionResult<List<Ativo>> Get()
         {
-            return new string[] { "Ativo 1", "Ativo 2", "Ativo 3", "Ativo 4" };
+            //return new string[] { "Ativo 1", "Ativo 2", "Ativo 3", "Ativo 4" };
+            return _ativoRegraNegocio.ObterLista();
         }
 
         // GET api/values/5
@@ -25,8 +31,9 @@ namespace SCA.Ativos.Controllers
 
         // POST: api/Ativos
         [HttpPost]
-        public void Post([FromBody] string value)
+        public void Post([FromBody] Ativo value)
         {
+             _ativoRegraNegocio.Inserir(value);
         }
 
         // PUT: api/Ativos/5

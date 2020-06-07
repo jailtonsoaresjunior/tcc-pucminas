@@ -6,6 +6,8 @@ using Microsoft.Extensions.DependencyInjection;
 using Microsoft.Extensions.Hosting;
 using Microsoft.IdentityModel.Logging;
 using System.IdentityModel.Tokens.Jwt;
+using Microsoft.EntityFrameworkCore;
+using SCA.Apresentacao.Data;
 
 namespace SCA.Apresentacao
 {
@@ -36,7 +38,7 @@ namespace SCA.Apresentacao
                 {
                     options.SignInScheme = "Cookies";
 
-                    options.Authority = "http://192.168.1.102:9000/";
+                    options.Authority = "http://192.168.1.127:9000/";
                     options.RequireHttpsMetadata = false;
 
                     options.ClientId = "mvc";
@@ -55,6 +57,12 @@ namespace SCA.Apresentacao
                     options.Scope.Add("offline_access");
                     options.ClaimActions.MapJsonKey("website", "website");
                 });
+
+            services.AddDbContext<SCAApresentacaoContext>(options =>
+                    options.UseInMemoryDatabase("Ativos"));
+            //options.UseSqlServer(Configuration.GetConnectionString("SCAApresentacaoContext")));
+
+            
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.

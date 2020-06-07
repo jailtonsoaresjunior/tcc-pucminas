@@ -10,11 +10,16 @@ namespace SCA.Compliance.Controllers
     [ApiController]
     public class ComplianceController : ControllerBase
     {
+        private readonly ComplianceNegocio _complianceNegocio;
+        public ComplianceController(ComplianceNegocio complianceNegocio)
+        {
+            _complianceNegocio = complianceNegocio;
+        }
         // GET: api/Compliance
         [HttpGet]
         public IEnumerable<string> Get()
         {
-            return new ComplianceNegocio().ObterLista();
+            return _complianceNegocio.ObterLista();
             //return new string[] { "value1", "value2" };
         }
 

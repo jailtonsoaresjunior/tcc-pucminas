@@ -12,5 +12,10 @@
     <PackageReference Include="Microsoft.VisualStudio.Web.CodeGeneration.Design" Version="3.1.3" />
   </ItemGroup>
 
+  <ItemGroup>
+    <ProjectReference Include="..\..\SCA.Ativos.Modelo\SCA.Ativos.Modelo.csproj" />
+    <ProjectReference Include="..\..\SCA.Ativos.RegraNegocio\SCA.Ativos.RegraNegocio.csproj" />
+  </ItemGroup>
+
 
 </Project>
