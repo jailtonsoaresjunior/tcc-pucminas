@@ -13,8 +13,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SCA.Ativos.Modelo\SCA.Ativos.Modelo.csproj" />
-    <ProjectReference Include="..\..\SCA.Ativos.RegraNegocio\SCA.Ativos.RegraNegocio.csproj" />
+    <ProjectReference Include="..\SCA.Ativos.Modelo\SCA.Ativos.Modelo.csproj" />
+    <ProjectReference Include="..\SCA.Ativos.RegraNegocio\SCA.Ativos.RegraNegocio.csproj" />
   </ItemGroup>
 
 
