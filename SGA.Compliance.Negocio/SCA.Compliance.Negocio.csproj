@@ -6,8 +6,8 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\..\SCA.Compliance.Dados\SCA.Compliance.Dados.csproj" />
     <ProjectReference Include="..\Contrato\SCA.Compliance.Interface.csproj" />
+    <ProjectReference Include="..\SCA.Compliance.Dados\SCA.Compliance.Dados.csproj" />
   </ItemGroup>
 
 </Project>
