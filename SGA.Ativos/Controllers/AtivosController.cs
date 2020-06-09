@@ -46,6 +46,7 @@ namespace SCA.Ativos.Controllers
         [HttpDelete("{id}")]
         public void Delete(int id)
         {
+            _ativoRegraNegocio.Excluir(id);
         }
     }
 }

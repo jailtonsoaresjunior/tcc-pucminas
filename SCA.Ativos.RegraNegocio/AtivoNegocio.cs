@@ -23,5 +23,10 @@ namespace SCA.Ativos.Negocio
         {
             _ativoDados.Inserir(ativo);
         }
+
+        public void Excluir(int id)
+        {
+            _ativoDados.Excluir(id);
+        }
     }
 }

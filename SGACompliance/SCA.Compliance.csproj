@@ -20,8 +20,8 @@
   </ItemGroup>
 
   <ItemGroup>
-    <ProjectReference Include="..\Contrato\SCA.Compliance.Interface.csproj" />
-    <ProjectReference Include="..\SGA.Compliance.Negocio\SCA.Compliance.Negocio.csproj" />
+    <ProjectReference Include="..\Contrato\SCA.Compliance.Modelo.csproj" />
+    <ProjectReference Include="..\SGA.Compliance.Negocio\SCA.Compliance.RegraNegocio.csproj" />
   </ItemGroup>
 
 

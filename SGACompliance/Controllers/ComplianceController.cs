@@ -1,6 +1,6 @@
 ﻿using Microsoft.AspNetCore.Authorization;
 using Microsoft.AspNetCore.Mvc;
-using SCA.Compliance.Negocio;
+using SCA.Compliance.RegraNegocio;
 using System.Collections.Generic;
 
 namespace SCA.Compliance.Controllers
