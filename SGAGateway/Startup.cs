@@ -20,7 +20,7 @@ namespace SCA.Gateway
         // This method gets called by the runtime. Use this method to add services to the container.
         public void ConfigureServices(IServiceCollection services)
         {
-            var identityUrl = "http://192.168.1.127:9000/";
+            var identityUrl = "http://host.docker.internal:9000/";
             var authenticationProviderKey = "SCAAutenticacao";
 
             services.AddAuthentication()

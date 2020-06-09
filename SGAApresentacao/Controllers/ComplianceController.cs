@@ -17,7 +17,7 @@ namespace SCA.Apresentacao.Controllers
 
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            var content = await client.GetStringAsync("http://192.168.1.127:10000/Conformidade/");
+            var content = await client.GetStringAsync("http://host.docker.internal:10000/Conformidade/");
 
             ViewBag.listaConformidadeJson = JArray.Parse(content).ToString();
 

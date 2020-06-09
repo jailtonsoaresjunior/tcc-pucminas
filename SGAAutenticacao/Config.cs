@@ -125,10 +125,10 @@ namespace SCA.Autenticacao
                     //RequirePkce = true,
                 
                     // where to redirect to after login
-                    RedirectUris = { "http://192.168.1.127:8000/signin-oidc" },
+                    RedirectUris = { "http://host.docker.internal:8000/signin-oidc" },
 
                     // where to redirect to after logout
-                    PostLogoutRedirectUris = { "http://192.168.1.127:8000/signout-callback-oidc" },
+                    PostLogoutRedirectUris = { "http://host.docker.internal:8000/signout-callback-oidc" },
 
                     AllowedScopes =
                     {

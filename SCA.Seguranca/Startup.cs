@@ -29,7 +29,7 @@ namespace SCA.Seguranca
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
                 {
-                    options.Authority = "http://192.168.1.127:9000/";
+                    options.Authority = "http://host.docker.internal:9000/";
                     options.RequireHttpsMetadata = false;
                     options.Audience = "apiSeguranca";
                 });

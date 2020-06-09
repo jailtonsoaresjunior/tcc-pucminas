@@ -38,7 +38,7 @@ namespace SCA.Apresentacao
                 {
                     options.SignInScheme = "Cookies";
 
-                    options.Authority = "http://192.168.1.127:9000/";
+                    options.Authority = "http://host.docker.internal:9000/";
                     options.RequireHttpsMetadata = false;
 
                     options.ClientId = "mvc";
