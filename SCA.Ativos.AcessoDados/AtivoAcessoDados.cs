@@ -16,15 +16,8 @@ namespace SCA.Ativos.AcessoDados
         private DbContextOptions<AtivosContext> _options = new DbContextOptionsBuilder<AtivosContext>().Options;
 
         private List<Ativo> _listaAtivos;
-        public AtivoAcessoDados()
-        {
-            //    var cache = _memoryCache.Get("Lista");
-            //    _listaAtivos = cache == null ? new List<Ativo>() : (List<Ativo>)cache;
-        }
-        //public AtivoDados(MemoryCache memoryCache)
-        //{
-        //    _memoryCache = memoryCache;
-        //}
+       
+      
         public List<Ativo> ObterLista()
         {
            
@@ -33,16 +26,7 @@ namespace SCA.Ativos.AcessoDados
             {
                 return contexto.Ativos.ToList();
             }
-            //var lista =_memoryCache.Get("Lista");
-            //if (lista == null)
-            //{
-            //    return new List<Ativo>();
-            //}
-            //else
-            //{
-            //    return (List<Ativo>)lista;
-            //}
-            //return new List<Ativo>();
+            
         }
 
         public void Inserir(Ativo ativo)
@@ -52,9 +36,17 @@ namespace SCA.Ativos.AcessoDados
                 contexto.Add(ativo);
                 contexto.SaveChanges();
             }
-            //_listaAtivos.Add(ativo);
-            //_memoryCache.Remove("Lista");
-            //_memoryCache.AddOrGetExisting("Lista", _listaAtivos, politicaCache);
+        }
+
+        public void Excluir(int id)
+        {
+            using (var contexto = new AtivosContext(_options))
+            {
+                Ativo ativo = new Ativo() { Id = id };
+
+                contexto.Ativos.Remove(ativo);
+                contexto.SaveChanges();
+            }
         }
     }
 }

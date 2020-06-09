@@ -98,6 +98,22 @@
         }
       ],
       "UpstreamPathTemplate": "/Ativos/{id}",
+      "UpstreamHttpMethod": [ "Delete" ],
+      "AuthenticationOptions": {
+        "AuthenticationProviderKey": "SCAAutenticacao",
+        "AllowedScopes": []
+      }
+    },
+    {
+      "DownstreamPathTemplate": "/api/Ativos/{id}",
+      "DownstreamScheme": "http",
+      "DownstreamHostAndPorts": [
+        {
+          "Host": "scaativos",
+          "Port": 80
+        }
+      ],
+      "UpstreamPathTemplate": "/Ativos/{id}",
       "UpstreamHttpMethod": [ "Get" ],
       "AuthenticationOptions": {
         "AuthenticationProviderKey": "SCAAutenticacao",

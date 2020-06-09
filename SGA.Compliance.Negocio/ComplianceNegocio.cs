@@ -1,8 +1,8 @@
 ﻿using SCA.Compliance.Dados;
-using SCA.Compliance.Interface;
+using SCA.Compliance.Modelo.Interfarce;
 using System.Collections.Generic;
 
-namespace SCA.Compliance.Negocio
+namespace SCA.Compliance.RegraNegocio
 {
     public class ComplianceNegocio : ICompliance
     {

@@ -2,7 +2,7 @@
 using System.Collections.Generic;
 using System.Text;
 
-namespace SCA.Compliance.Interface
+namespace SCA.Compliance.Modelo.Interfarce
 {
     public interface ICompliance
     {

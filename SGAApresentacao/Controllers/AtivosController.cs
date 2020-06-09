@@ -1,9 +1,12 @@
 ﻿using Microsoft.AspNetCore.Authentication;
 using Microsoft.AspNetCore.Mvc;
+using Microsoft.EntityFrameworkCore.Metadata.Internal;
 using Newtonsoft.Json;
 using Newtonsoft.Json.Linq;
 using SCA.Apresentacao.Data;
 using SCA.Apresentacao.Models;
+using System.Collections.Generic;
+using System.Linq;
 using System.Net.Http;
 using System.Net.Http.Headers;
 using System.Text;
@@ -32,11 +35,13 @@ namespace SCA.Apresentacao.Controllers
 
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            var content = await client.GetStringAsync("http://host.docker.internal:10000/Ativos/");
-
+            var content = await client.GetStringAsync("http://192.168.1.127:10000/Ativos/");
+            
+            var model = JsonConvert.DeserializeObject<List<Ativo>>(content);
+          
             ViewBag.listaAtivosJson = JArray.Parse(content).ToString();
-
-            return View();
+            
+            return View(model);
         }
 
         public ActionResult Novo()
@@ -44,7 +49,7 @@ namespace SCA.Apresentacao.Controllers
             return View("AtivoNovo");
         }
         [HttpPost]
-        public async Task<IActionResult> AtivoNovo(Ativo ativo)
+        public async Task<IActionResult> Novo(Ativo ativo)
         {
 
             var accessToken = await HttpContext.GetTokenAsync("access_token");
@@ -53,7 +58,30 @@ namespace SCA.Apresentacao.Controllers
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             var content = JsonConvert.SerializeObject(ativo);
             var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PostAsync("http://host.docker.internal:10000/Ativos/", httpContent);
+            HttpResponseMessage response = await client.PostAsync("http://192.168.1.127:10000/Ativos/", httpContent);
+           
+            return RedirectToAction("Index");
+        }
+        [HttpGet]
+        public async Task<IActionResult> Excluir(int id)
+        {
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            var content = await client.DeleteAsync("http://192.168.1.127:10000/Ativos/" + id);
+            return RedirectToAction("Index");
+        }
+
+        [HttpPost]
+        public async Task<IActionResult> AtivoAtualizar(Ativo ativo)
+        {
+            var accessToken = await HttpContext.GetTokenAsync("access_token");
+
+            var client = new HttpClient();
+            client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
+            var content = JsonConvert.SerializeObject(ativo);
+            var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
+            HttpResponseMessage response = await client.PostAsync("http://192.168.1.127:10000/Ativos/", httpContent);
             return RedirectToAction("Index");
         }
     }
