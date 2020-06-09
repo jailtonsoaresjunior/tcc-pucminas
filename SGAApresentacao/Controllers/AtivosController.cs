@@ -35,7 +35,7 @@ namespace SCA.Apresentacao.Controllers
 
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            var content = await client.GetStringAsync("http://192.168.1.127:10000/Ativos/");
+            var content = await client.GetStringAsync("http://host.docker.internal:10000/Ativos/");
             
             var model = JsonConvert.DeserializeObject<List<Ativo>>(content);
           
@@ -58,7 +58,7 @@ namespace SCA.Apresentacao.Controllers
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             var content = JsonConvert.SerializeObject(ativo);
             var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PostAsync("http://192.168.1.127:10000/Ativos/", httpContent);
+            HttpResponseMessage response = await client.PostAsync("http://host.docker.internal:10000/Ativos/", httpContent);
            
             return RedirectToAction("Index");
         }
@@ -68,7 +68,7 @@ namespace SCA.Apresentacao.Controllers
             var accessToken = await HttpContext.GetTokenAsync("access_token");
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            var content = await client.DeleteAsync("http://192.168.1.127:10000/Ativos/" + id);
+            var content = await client.DeleteAsync("http://host.docker.internal:10000/Ativos/" + id);
             return RedirectToAction("Index");
         }
 
@@ -81,7 +81,7 @@ namespace SCA.Apresentacao.Controllers
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
             var content = JsonConvert.SerializeObject(ativo);
             var httpContent = new StringContent(content, Encoding.UTF8, "application/json");
-            HttpResponseMessage response = await client.PostAsync("http://192.168.1.127:10000/Ativos/", httpContent);
+            HttpResponseMessage response = await client.PostAsync("http://host.docker.internal:10000/Ativos/", httpContent);
             return RedirectToAction("Index");
         }
     }
