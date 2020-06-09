@@ -18,6 +18,6 @@ namespace SCA.Ativos.AcessoDados
             optionsBuilder.UseInMemoryDatabase("Ativos");
         }
         public DbSet<Ativo> Ativos{ get; set; }
-        public DbSet<CategoraAtivo> CategoriasAtivo { get; set; }
+        //public DbSet<CategoraAtivo> CategoriasAtivo { get; set; }
     }
 }

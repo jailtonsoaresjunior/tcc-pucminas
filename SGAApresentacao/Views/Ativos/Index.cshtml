@@ -6,14 +6,12 @@
 <h1>Controle de Ativos</h1>
 @*<pre>@ViewBag.listaAtivosJson</pre>*@
 <div>
-    <a asp-action="Novo">Novo Ativo</a>
-</div>
-<div>
     <h5>Lista de Ativos</h5>
     @Html.Display(Model.Count.ToString())
 </div>
 @if (Model.Count > 0)
 {
+<fieldset>
     <table class="table">
         <thead>
             <tr>
@@ -21,32 +19,57 @@
                     ID
                 </th>
                 <th>Descrição</th>
+                <th>
+                    Data da Compra
+                </th>
+                <th>
+                    Prazo Manutenção(Meses)
+                </th>
+                <th>
+                    Categoria
+                </th>
                 <th></th>
             </tr>
         </thead>
         <tbody>
             @foreach (var item in Model)
             {
-                <tr>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Id)
-                    </td>
-                    <td>
-                        @Html.DisplayFor(modelItem => item.Descricao)
-                    </td>
-                    <td>
-                        @*<a asp-action="Edit" asp- asp-route-id="@item.Id">Edit</a> |
-                            <a asp-action="/Details" asp-route-id="@item.Id">Details</a> |*@
-                        <a asp-action="Excluir" asp-route-id="@item.Id" onclick="return confirm('Tem certeze que deseja excluir o ativo?');">Excluir</a>
-                    </td>
-                </tr>
+            <tr>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Id)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.Descricao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.DataCompra)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.MesesManutencao)
+                </td>
+                <td>
+                    @Html.DisplayFor(modelItem => item.CategoriaAtivo)
+                </td>
+                <td>
+                    @*<a asp-action="Edit" asp- asp-route-id="@item.Id">Edit</a> |
+            <a asp-action="/Details" asp-route-id="@item.Id">Details</a> |*@
+                    <a class="btn btn-primary" asp-action="Excluir" asp-route-id="@item.Id" onclick="return confirm('Tem certeze que deseja excluir o ativo?');">Excluir</a>
+                </td>
+            </tr>
             }
         </tbody>
     </table>
+</fieldset>
+    
 }
 else
 {
-    <div style="text-align:center">
-        <h5>Nenhum registro encontrado</h5>
+    <div class="col-sm-12" style="text-align:center">
+        <fieldset>
+            <h5>Nenhum registro encontrado</h5>
+        </fieldset>
     </div>
 }
+<div>
+    <a class="btn btn-primary" asp-action="Novo">Novo Ativo</a>
+</div>

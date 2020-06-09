@@ -10,6 +10,9 @@ namespace SCA.Ativos.Modelo
         
         public string Descricao { get; set; }
 
-        public CategoraAtivo CategoriaAtivo { get; set; }
+        public String CategoriaAtivo { get; set; }
+
+        public DateTime DataCompra { get; set; }
+        public int MesesManutencao { get; set; }
     }
 }
