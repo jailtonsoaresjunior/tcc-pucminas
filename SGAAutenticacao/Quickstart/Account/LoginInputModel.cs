@@ -9,9 +9,12 @@ namespace sgaautenticacao
     public class LoginInputModel
     {
         [Required]
+        [Display(Name="Usuário")]
         public string Username { get; set; }
         [Required]
+        [Display(Name = "Senha")] 
         public string Password { get; set; }
+        [Display(Name = "Lembrar Login")] 
         public bool RememberLogin { get; set; }
         public string ReturnUrl { get; set; }
     }

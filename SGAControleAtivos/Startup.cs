@@ -29,12 +29,12 @@ namespace SGAControleAtivos
             // prevent from mapping "sub" claim to nameidentifier.
             JwtSecurityTokenHandler.DefaultInboundClaimTypeMap.Clear();
 
-            var identityUrl = "http://192.168.1.102:9000/";
+            var identityUrl = "http://host.docker.internal:9000/";
 
             services.AddAuthentication("Bearer")
                 .AddJwtBearer("Bearer", options =>
                 {
-                    options.Authority = "http://192.168.1.102:9000/";
+                    options.Authority = "http://host.docker.internal:9000/";
                     options.RequireHttpsMetadata = false;
                     options.Audience = "api1";
                 });

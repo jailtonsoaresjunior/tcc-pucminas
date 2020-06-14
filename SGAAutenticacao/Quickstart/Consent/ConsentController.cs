@@ -50,13 +50,14 @@ namespace sgaautenticacao
         [HttpGet]
         public async Task<IActionResult> Index(string returnUrl)
         {
-            var vm = await BuildViewModelAsync(returnUrl);
-            if (vm != null)
-            {
-                return View("Index", vm);
-            }
+            return Redirect("http://host.docker.internal:8000/");
+            //var vm = await BuildViewModelAsync(returnUrl);
+            //if (vm != null)
+            //{
+            //    return View("Index", vm);
+            //}
 
-            return View("Error");
+            //return View("Error");
         }
 
         /// <summary>

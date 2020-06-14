@@ -5,7 +5,7 @@
     <DockerTargetOS>Linux</DockerTargetOS>
     <ProjectGuid>d39be925-5e87-4623-b899-edf354fbb3a7</ProjectGuid>
     <DockerLaunchAction>LaunchBrowser</DockerLaunchAction>
-    <DockerServiceUrl>{Scheme}://192.168.1.102:{ServicePort}/</DockerServiceUrl>
+    <DockerServiceUrl>{Scheme}://host.docker.internal:{ServicePort}/</DockerServiceUrl>
     <DockerServiceName>scagateway</DockerServiceName>
   </PropertyGroup>
   <ItemGroup>

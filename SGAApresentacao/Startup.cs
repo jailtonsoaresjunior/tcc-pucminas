@@ -43,26 +43,26 @@ namespace SCA.Apresentacao
 
                     options.ClientId = "mvc";
                     options.ClientSecret = "secret";
-                    options.ResponseType = "code id_token";
+                    options.ResponseType = "code";
 
                     options.SaveTokens = true;
-                    options.GetClaimsFromUserInfoEndpoint = true;
+                    //options.GetClaimsFromUserInfoEndpoint = true;
 
-                    options.Scope.Add("apiAtivos");
-                    options.Scope.Add("apiCompliance");
-                    options.Scope.Add("apiInteligenciaNegocio");
-                    options.Scope.Add("apiSeguranca");
-                    options.Scope.Add("apiMonitoramento");
-                    options.Scope.Add("apiProcessoMinerario");
-                    options.Scope.Add("offline_access");
-                    options.ClaimActions.MapJsonKey("website", "website");
+                    //options.Scope.Add("apiAtivos");
+                    //options.Scope.Add("apiCompliance");
+                    //options.Scope.Add("apiInteligenciaNegocio");
+                    //options.Scope.Add("apiSeguranca");
+                    //options.Scope.Add("apiMonitoramento");
+                    //options.Scope.Add("apiProcessoMinerario");
+                    //options.Scope.Add("offline_access");
+                    //options.ClaimActions.MapJsonKey("website", "website");
                 });
 
-            services.AddDbContext<SCAApresentacaoContext>(options =>
-                    options.UseInMemoryDatabase("Ativos"));
+                    //services.AddDbContext<SCAApresentacaoContext>(options =>
+                    //options.UseInMemoryDatabase("Ativos"));
             //options.UseSqlServer(Configuration.GetConnectionString("SCAApresentacaoContext")));
 
-            
+
         }
 
         // This method gets called by the runtime. Use this method to configure the HTTP request pipeline.
@@ -91,6 +91,7 @@ namespace SCA.Apresentacao
                     name: "default",
                     pattern: "{controller=Home}/{action=Index}/{id?}");
 
+                
                 //endpoints.MapRazorPages();
                 //endpoints.MapDefaultControllerRoute()
                 //         .RequireAuthorization();

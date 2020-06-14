@@ -23,7 +23,7 @@ namespace SGAControleAtivos.Controllers
             HttpClient httpClient = new HttpClient();
             var tokenResponse = await httpClient.RequestClientCredentialsTokenAsync(new ClientCredentialsTokenRequest
             {
-                Address = "http://192.168.1.102:9000/connect/token",
+                Address = "http://host.docker.internal:9000/connect/token",
                 ClientId = "client",
                 ClientSecret = "secret",
                 Scope = "api1"

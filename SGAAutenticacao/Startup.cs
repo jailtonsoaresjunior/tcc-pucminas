@@ -28,14 +28,20 @@ namespace SCA.Autenticacao
             
         }
 
-        public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        //public void Configure(IApplicationBuilder app, IWebHostEnvironment env)
+        public void Configure(IApplicationBuilder app)
         {
-            if (env.IsDevelopment())
+            //if (env.IsDevelopment())
+            //{
+            //    app.UseDeveloperExceptionPage();
+            //}
+
+            //app.UseDeveloperExceptionPage();
+
+            if (Environment.IsDevelopment())
             {
                 app.UseDeveloperExceptionPage();
             }
-
-            app.UseDeveloperExceptionPage();
 
             // uncomment if you want to add MVC
             app.UseStaticFiles();
