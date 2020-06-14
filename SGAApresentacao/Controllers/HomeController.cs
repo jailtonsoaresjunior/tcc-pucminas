@@ -29,7 +29,7 @@ namespace SCA.Apresentacao.Controllers
 
             var client = new HttpClient();
             client.DefaultRequestHeaders.Authorization = new AuthenticationHeaderValue("Bearer", accessToken);
-            var content = await client.GetStringAsync("http://host.docker.internal:10000/ObterListaConformidade");
+            var content = await client.GetStringAsync("http://host.docker.internal:2000/api/Ativos");
 
             ViewBag.Json = JArray.Parse(content).ToString();
             return View("ListaControleAtivos");

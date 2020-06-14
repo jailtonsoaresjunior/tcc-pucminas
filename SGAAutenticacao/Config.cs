@@ -58,6 +58,7 @@ namespace SCA.Autenticacao
                 {
                     IdentityServerConstants.StandardScopes.OpenId,
                     IdentityServerConstants.StandardScopes.Profile,
+                    "apiAtivos"
                 }
             }
         };

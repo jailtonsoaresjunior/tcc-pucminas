@@ -48,7 +48,7 @@ namespace SCA.Apresentacao
                     options.SaveTokens = true;
                     //options.GetClaimsFromUserInfoEndpoint = true;
 
-                    //options.Scope.Add("apiAtivos");
+                    options.Scope.Add("apiAtivos");
                     //options.Scope.Add("apiCompliance");
                     //options.Scope.Add("apiInteligenciaNegocio");
                     //options.Scope.Add("apiSeguranca");
