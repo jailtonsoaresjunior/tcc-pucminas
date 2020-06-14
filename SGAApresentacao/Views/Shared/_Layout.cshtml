@@ -11,7 +11,7 @@
     <header>
         <nav class="navbar navbar-expand-sm navbar-toggleable-sm navbar-light bg-white border-bottom box-shadow mb-3">
             <div class="container">
-                <a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Sistema de Gestão Ambiental</a>
+                @*<a class="navbar-brand" asp-area="" asp-controller="Home" asp-action="Index">Sistema de Gestão Ambiental</a>*@
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target=".navbar-collapse" aria-controls="navbarSupportedContent"
                         aria-expanded="false" aria-label="Toggle navigation">
                     <span class="navbar-toggler-icon"></span>
@@ -27,21 +27,22 @@
                         <li class="nav-item">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Ativos" asp-action="Index">Controle de Ativos</a>
                         </li>
-                        @*<li class="nav-item">
+                        <li class="nav-item disabled">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Compliance" asp-action="Index">Compliance</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item disabled">
                             <a class="nav-link text-dark" asp-area="" asp-controller="InteligenciaNegocio" asp-action="Index">Inteligência de Negócio</a>
                         </li>
-                        <li class="nav-item">
+                        <li class="nav-item disabled">
                             <a class="nav-link text-dark" asp-area="" asp-controller="Monitoramento" asp-action="Index">Monitoramento</a>
                         </li>
-                        <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="ProcessoMinerario" asp-action="Index">Processo Minerário</a>
+                        <li class="nav-item disabled">
+                            <a class="nav-link text-dark " asp-area="" asp-controller="ProcessoMinerario" asp-action="Index">Processo Minerário</a>
                         </li>
                         <li class="nav-item">
-                            <a class="nav-link text-dark" asp-area="" asp-controller="Seguranca" asp-action="Index">Segurança</a>
-                        </li>*@
+                            <a class="nav-link text-dark font-weight-bold" href="http://host.docker.internal:9000/Account/Logout">Sair</a>
+                        </li>
+
                     </ul>
                 </div>
             </div>

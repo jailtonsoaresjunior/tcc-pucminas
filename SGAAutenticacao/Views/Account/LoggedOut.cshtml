@@ -1,14 +1,22 @@
 ﻿@model LoggedOutViewModel
 
-@{ 
+@{
     // set this so the layout rendering sees an anonymous user
     ViewData["signed-out"] = true;
 }
+    <script>
+        $(function () {
 
+            $.cookie('.AspNetCore.Cookies', "", -1);
+            $.cookie('.AspNetCore.Antiforgery.9TtSrW0hzOs', "", -1);
+            
+        });
+
+    </script>
 <div class="page-header logged-out">
     <h1>
         Logout
-        <small>You are now logged out</small>
+        <small> Agora você está desconectado</small>
     </h1>
 
     @if (Model.PostLogoutRedirectUri != null)
